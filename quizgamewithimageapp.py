@@ -51,7 +51,7 @@ if st.session_state.question_index < 5:
         st.info(st.session_state.last_feedback)
 
         if st.session_state.image_url:
-            st.image(st.session_state.image_url, caption=f"{current_q['correct_answer']} (AI-generated)", use_column_width=True)
+            st.image(st.session_state.image_url, caption=f"{current_q['correct_answer']} (AI-generated)", use_container_width=True)
 
         if st.session_state.question_index < 4:
             if st.button("Next Question"):
