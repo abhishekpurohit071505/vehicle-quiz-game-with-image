@@ -67,7 +67,7 @@ def validate_answer(question, user_answer):
 
 # Agent 3: Generate Vehicle Brand Image (DALL·E 3)
 def generate_vehicle_image(correct_answer: str) -> str:
-    prompt_text = "A simple image of the {correct_answer} vehicle. Minimal style, no flashy elements."
+    prompt_text = "A image of the {correct_answer} vehicle."
     try:
         response = client.images.generate(
             model="dall-e-3",
