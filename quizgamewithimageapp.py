@@ -1,5 +1,5 @@
 import streamlit as st
-from quiz_agents import generate_question, generate_explanation, generate_vehicle_image
+from quiz_agents_image import generate_question, generate_explanation, generate_vehicle_image
 
 st.set_page_config(page_title="Vehicle Quiz Game", layout="centered")
 st.title("🚗 Vehicle Quiz Game")
