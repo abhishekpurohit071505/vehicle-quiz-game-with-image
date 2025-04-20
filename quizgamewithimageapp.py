@@ -37,8 +37,8 @@ if st.button("✅ Submit Answer") and st.session_state.selected_answer:
         st.error(f"Wrong! The correct answer was: {st.session_state.correct_answer}")
 
     # Generate explanation
-    st.session_state.explanation = generate_explanation(st.session_state.correct_answer)
-    st.markdown(f"**💡 Why?** {st.session_state.explanation}")
+    #st.session_state.explanation = generate_explanation(st.session_state.correct_answer)
+    #st.markdown(f"**💡 Why?** {st.session_state.explanation}")
 
     # Generate image for correct brand
     st.session_state.image_url = generate_vehicle_image(st.session_state.correct_answer)
