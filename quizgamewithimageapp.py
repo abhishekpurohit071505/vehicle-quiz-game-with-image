@@ -18,13 +18,13 @@ if "question_index" not in st.session_state:
     st.session_state.image_url = ""
 
 # Load question if needed
-if len(st.session_state.questions) < 5:
+if len(st.session_state.questions) < 3:
     q = generate_question(list(st.session_state.asked_questions))
     st.session_state.questions.append(q)
     st.session_state.asked_questions.add(q["question"])
 
 # Show quiz if not completed
-if st.session_state.question_index < 5:
+if st.session_state.question_index < 3:
     current_q = st.session_state.questions[st.session_state.question_index]
     st.markdown(f"**Question {st.session_state.question_index + 1}:** {current_q['question']}")
 
@@ -53,22 +53,22 @@ if st.session_state.question_index < 5:
         if st.session_state.image_url:
             st.image(st.session_state.image_url, caption=f"{current_q['correct_answer']} (AI-generated)", use_container_width=True)
 
-        if st.session_state.question_index < 4:
+        if st.session_state.question_index < 2:
             if st.button("Next Question"):
                 st.session_state.question_index += 1
                 st.session_state.show_feedback = False
                 st.session_state.last_feedback = ""
                 st.session_state.answered = False
                 st.rerun()
-        elif st.session_state.question_index == 4 and not st.session_state.finished:
+        elif st.session_state.question_index == 2 and not st.session_state.finished:
             if st.button("Finish Quiz"):
                 st.session_state.question_index += 1
                 st.session_state.finished = True
                 st.rerun()
 
 # Show results after all questions
-if st.session_state.question_index >= 5:
+if st.session_state.question_index >= 3:
     st.markdown("## 🎉 Quiz Completed!")
-    st.success(f"**Your Final Score: {st.session_state.score} / 5**")
+    st.success(f"**Your Final Score: {st.session_state.score} / 3**")
     if st.button("Play Again"):
         st.session_state.clear()
